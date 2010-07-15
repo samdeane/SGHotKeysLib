@@ -40,14 +40,14 @@ NSString * const kModifiersDictionaryKey = @"modifiers";
   NSInteger theKeyCode;
   NSInteger theModifiers;
   
-  if (!thePlist || ![thePlist count]) {
+  if (!thePlist || ![(NSDictionary*) thePlist count]) {
     theKeyCode = -1;
     theModifiers = -1;
   } else {
-    theKeyCode = [[thePlist objectForKey:kKeyCodeDictionaryKey] integerValue];
+    theKeyCode = [[(NSDictionary*) thePlist objectForKey:kKeyCodeDictionaryKey] integerValue];
     if (theKeyCode <= 0) theKeyCode = -1;
     
-    theModifiers = [[thePlist objectForKey:kModifiersDictionaryKey] integerValue];
+    theModifiers = [[(NSDictionary*) thePlist objectForKey:kModifiersDictionaryKey] integerValue];
     if (theModifiers <= 0) theModifiers = -1;    
   }
   
